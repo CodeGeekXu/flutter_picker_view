@@ -1,8 +1,8 @@
 name: flutter_picker_view
 description: A  Flutter picker view like iOS UIPickerView support multiple pickers
 version: 0.0.1
-author:
-homepage:
+author: CodeGeekXu <codegeekxu@gmail.com>
+homepage: https://github.com/CodeGeekXu/flutter_picker_view.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
