@@ -3,3 +3,4 @@ pubspec.lock
 .idea
 example/android
 example/ios
+example.iml
