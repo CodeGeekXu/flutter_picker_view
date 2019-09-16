@@ -1,3 +1,5 @@
 pubspec.lock
 .packages
 .idea
+example/android
+example/ios
