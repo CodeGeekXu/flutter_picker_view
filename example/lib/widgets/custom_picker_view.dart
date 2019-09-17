@@ -17,7 +17,7 @@ class CustomPickerViewState extends State<CustomPickerView> {
   @override
   void initState() {
     super.initState();
-    _controller = PickerController(count: 2, selectedItems: []);
+    _controller = PickerController(count: 2);
   }
   
   @override

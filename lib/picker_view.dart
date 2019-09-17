@@ -103,13 +103,11 @@ class PickerController  {
   final List<FixedExtentScrollController> scrollControllers;
 
   PickerController({@required this.count, List<int> selectedItems}) :  scrollControllers = [] {
-    if (selectedItems != null) {
-      for (int i = 0; i< this.count; i++) {
-        if (i < selectedItems.length) {
-          scrollControllers.add(FixedExtentScrollController(initialItem: selectedItems[i]));
-        } else {
-          scrollControllers.add(FixedExtentScrollController());
-        }
+    for (int i = 0; i< count; i++) {
+      if (selectedItems != null && i < selectedItems.length) {
+        scrollControllers.add(FixedExtentScrollController(initialItem: selectedItems[i]));
+      } else {
+        scrollControllers.add(FixedExtentScrollController());
       }
     }
   }
