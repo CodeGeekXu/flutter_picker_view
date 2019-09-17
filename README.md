@@ -21,10 +21,10 @@ enum PickerShowMode {
 }
 ```
 ### AlertDialog
-![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/alert_dialog.png)
+![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/alert_dialog.jpeg)
 
 ### BottomSheet
-![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/bottom_sheet.png)
+![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/bottom_sheet.jpeg)
 
 ```dart
 void _showPicker() {
@@ -70,7 +70,7 @@ void _showPicker() {
 ```
 
 ### Custom PickerView
-![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/custom.png)
+![image](https://github.com/CodeGeekXu/flutter_picker_view/blob/master/custom.jpeg)
 
 ```dart
 
