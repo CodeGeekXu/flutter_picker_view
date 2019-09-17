@@ -88,6 +88,7 @@ class ExamplePageState extends State<ExamplePage> {
           child: popup,
         );
       },
+      itemExtent: 40,
       numberofRowsAtSection: (section) {
         return 10;
       },
@@ -108,7 +109,7 @@ class ExamplePageState extends State<ExamplePage> {
       cancel: Text('cancel', style: TextStyle(color: Colors.grey),),
       onCancel: () {
         Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text('BottomSheetPicekr.cancel'))
+          SnackBar(content: Text('BottomSheetPicker.cancel'))
         );
       },
       confirm: Text('confirm', style: TextStyle(color: Colors.blue),),
@@ -119,7 +120,7 @@ class ExamplePageState extends State<ExamplePage> {
         selectedItems.add(controller.selectedRowAt(section: 2));
         
         Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text('BottomSheetPicekr.selected:$selectedItems'))
+          SnackBar(content: Text('BottomSheetPicker.selected:$selectedItems'))
         );
       },
       builder: (context, popup) {
@@ -128,6 +129,7 @@ class ExamplePageState extends State<ExamplePage> {
           child: popup,
         );
       },
+      itemExtent: 40,
       numberofRowsAtSection: (section) {
         return 10;
       },

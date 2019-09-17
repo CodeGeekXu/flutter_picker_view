@@ -39,11 +39,34 @@ class CustomPickerViewState extends State<CustomPickerView> {
             Container(
               height: 150,
               child: PickerView(
+                itemExtent: 40,
                 numberofRowsAtSection: (section) {
                   return 10;
                 },
                 itemBuilder: (section, row) {
-                  return Text('$row',style: TextStyle(fontSize: 14),);
+                  if (0 == section) {
+                    return Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('$row',style: TextStyle(fontSize: 14),),
+                          Icon(Icons.face)
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('$row',style: TextStyle(fontSize: 14),),
+                          Icon(Icons.thumb_up)
+                        ],
+                      )
+                    );
+                  }
                 },
                 controller: _controller
               ),
