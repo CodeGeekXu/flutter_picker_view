@@ -60,14 +60,22 @@ class PickerViewState extends State<PickerView> {
         child: Container(
           color: Colors.white,
           child: Row(
-            children: [
-              for (int section = 0; section < _controller.count; section++)...[
-                Expanded(flex: 1,child: _buildPickerItem(section: section))
-              ]
-            ]
+            children: _buildPickers()
           )
         ),
     );
+  }
+  
+  List<Widget> _buildPickers() {
+    List<Widget> children = [];
+    
+    for (int section = 0; section < _controller.count; section++) {
+      children.add(
+        Expanded (flex: 1, child: _buildPickerItem (section: section))
+      );
+    }
+    
+    return children;
   }
 
   Widget _buildPickerItem({int section}) {
