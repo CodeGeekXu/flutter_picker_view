@@ -46,11 +46,7 @@ class PickerViewState extends State<PickerView> {
   
   @override
   void didChangeDependencies() {
-    if (widget.controller == null) {
-      _controller = PickerController(count: 0);
-    } else {
-      _controller = widget.controller;
-    }
+    _controller = widget.controller ?? PickerController(count: 0);
     super.didChangeDependencies();
   }
 
