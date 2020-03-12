@@ -64,7 +64,7 @@ class ExamplePageState extends State<ExamplePage> {
       PickerShowMode.AlertDialog,
       controller: pickerController,
       context: context,
-      title: Text('AlertDialogPicker',style: TextStyle(fontSize: 14),),
+      title: Text('alert dialog',style: TextStyle(fontSize: 14),),
       cancel: Text('cancel', style: TextStyle(color: Colors.grey),),
       onCancel: () {
         Scaffold.of(context).showSnackBar(
@@ -84,7 +84,7 @@ class ExamplePageState extends State<ExamplePage> {
       },
       builder: (context, popup) {
         return Container(
-          height: 150,
+          height: 280,
           child: popup,
         );
       },
@@ -105,7 +105,7 @@ class ExamplePageState extends State<ExamplePage> {
       PickerShowMode.BottomSheet,
       controller: pickerController,
       context: context,
-      title: Text('BottomSheetPicekr',style: TextStyle(fontSize: 14),),
+      title: Text('bottom sheet',style: TextStyle(fontSize: 14),),
       cancel: Text('cancel', style: TextStyle(color: Colors.grey),),
       onCancel: () {
         Scaffold.of(context).showSnackBar(

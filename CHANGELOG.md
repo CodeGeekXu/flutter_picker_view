@@ -1,3 +1,6 @@
+## [1.1.0] - 2020-0313
+* support web platform
+
 ## [1.0.0] - 2019-09-26
 * dart sdk support: ">=2.1.0 <3.0.0", remove Spread elements.
 
