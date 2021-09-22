@@ -13,20 +13,20 @@ class PickerViewPopup extends StatelessWidget {
   
   final PickerRowCallBack numberofRowsAtSection;
   final PickerItemBuilder itemBuilder;
-  final PickerVoidCallBack onSelectRowChanged;
-  final ValueChanged<PickerController> onConfirm;
-  final VoidCallback onCancel;
+  final PickerVoidCallBack? onSelectRowChanged;
+  final ValueChanged<PickerController>? onConfirm;
+  final VoidCallback? onCancel;
   final PickerController controller;
-  final double itemExtent;
-  final Widget cancel;
-  final Widget confirm;
+  final double? itemExtent;
+  final Widget? cancel;
+  final Widget? confirm;
   final PickerShowMode mode;
-  final Widget title;
+  final Widget? title;
 
   PickerViewPopup._({
-    @required this.numberofRowsAtSection,
-    @required this.itemBuilder,
-    @required this.controller,
+    required this.numberofRowsAtSection,
+    required this.itemBuilder,
+    required this.controller,
     this.mode = PickerShowMode.BottomSheet,
     this.itemExtent,
     this.onSelectRowChanged,
@@ -37,19 +37,19 @@ class PickerViewPopup extends StatelessWidget {
     this.onConfirm,
   }) : super();
   
-  static Future<T> showMode<T>(PickerShowMode mode,{
-    @required BuildContext context,
-    @required PickerViewBuilder builder,
-    @required PickerController controller,
-    @required PickerRowCallBack numberofRowsAtSection,
-    @required PickerItemBuilder itemBuilder,
-    PickerVoidCallBack onSelectRowChanged,
-    double itemExtent,
-    Widget title,
-    Widget cancel,
-    VoidCallback onCancel,
-    Widget confirm,
-    ValueChanged<PickerController> onConfirm,
+  static Future<T?> showMode<T>(PickerShowMode mode,{
+    required BuildContext context,
+    required PickerViewBuilder builder,
+    required PickerController controller,
+    required PickerRowCallBack numberofRowsAtSection,
+    required PickerItemBuilder itemBuilder,
+    PickerVoidCallBack? onSelectRowChanged,
+    double? itemExtent,
+    Widget? title,
+    Widget? cancel,
+    VoidCallback? onCancel,
+    Widget? confirm,
+    ValueChanged<PickerController>? onConfirm,
   }) {
     PickerViewPopup pickerView = PickerViewPopup._(
       numberofRowsAtSection: numberofRowsAtSection,
@@ -149,7 +149,7 @@ class PickerViewPopup extends StatelessWidget {
                       child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).accentColor)),
                       onTap: () {
                         if(onConfirm != null) {
-                          onConfirm(controller);
+                          onConfirm!(controller);
                         }
                       }
                     ),
@@ -192,7 +192,7 @@ class PickerViewPopup extends StatelessWidget {
                   child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).accentColor)),
                   onTap: () {
                     if(onConfirm != null) {
-                      onConfirm(controller);
+                      onConfirm!(controller);
                     }
                   }
                 ),
@@ -214,8 +214,8 @@ class PickerViewPopup extends StatelessWidget {
   }
   
   Widget _buildInkWellButton({
-    Widget child,
-    VoidCallback onTap
+    Widget? child,
+    VoidCallback? onTap
   }) {
     return Material(
       child: Ink(

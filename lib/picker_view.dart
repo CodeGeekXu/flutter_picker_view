@@ -9,14 +9,14 @@ class PickerView extends StatefulWidget {
   
   final PickerRowCallBack numberofRowsAtSection;
   final PickerItemBuilder itemBuilder;
-  final PickerVoidCallBack onSelectRowChanged;
-  final double itemExtent;
+  final PickerVoidCallBack? onSelectRowChanged;
+  final double? itemExtent;
   final PickerController controller;
 
   PickerView({
-    @required this.numberofRowsAtSection,
-    @required this.itemBuilder,
-    @required this.controller,
+    required this.numberofRowsAtSection,
+    required this.itemBuilder,
+    required this.controller,
     this.itemExtent = 40,
     this.onSelectRowChanged,
   }) : super();
@@ -29,7 +29,7 @@ class PickerView extends StatefulWidget {
 
 class PickerViewState extends State<PickerView> {
   
-  PickerController _controller;
+  late PickerController _controller;
   
   @override
   void initState() {
@@ -46,7 +46,7 @@ class PickerViewState extends State<PickerView> {
   
   @override
   void didChangeDependencies() {
-    _controller = widget.controller ?? PickerController(count: 0);
+    _controller = widget.controller;
     super.didChangeDependencies();
   }
 
@@ -74,7 +74,7 @@ class PickerViewState extends State<PickerView> {
     return children;
   }
 
-  Widget _buildPickerItem({int section}) {
+  Widget _buildPickerItem({required int section}) {
   
     FixedExtentScrollController scrollController = _controller.scrollControllers[section];
     
@@ -87,7 +87,7 @@ class PickerViewState extends State<PickerView> {
         childCount: widget.numberofRowsAtSection(section),
         onSelectedItemChanged: (row) {
           if(widget.onSelectRowChanged != null) {
-            widget.onSelectRowChanged(section, row);
+            widget.onSelectRowChanged!(section, row);
           }
         },
         itemBuilder: (context,row) {
@@ -106,7 +106,7 @@ class PickerController  {
   final int count;
   final List<FixedExtentScrollController> scrollControllers;
 
-  PickerController({@required this.count, List<int> selectedItems}) :  scrollControllers = [] {
+  PickerController({required this.count, List<int>? selectedItems}) :  scrollControllers = [] {
     for (int i = 0; i< count; i++) {
       if (selectedItems != null && i < selectedItems.length) {
         scrollControllers.add(FixedExtentScrollController(initialItem: selectedItems[i]));
@@ -122,7 +122,7 @@ class PickerController  {
     });
   }
   
-  int selectedRowAt({@required int section}) {
+  int? selectedRowAt({required int section}) {
     try {
       FixedExtentScrollController scrollController = scrollControllers[section];
       if (scrollController != null) {
@@ -135,7 +135,7 @@ class PickerController  {
     }
   }
 
-  void jumpToRow(int row, {@required int atSection}) {
+  void jumpToRow(int row, {required int atSection}) {
     try {
       if (scrollControllers.length <= atSection) {
         return;
@@ -149,7 +149,7 @@ class PickerController  {
 
   Future<void> animateToRow(
       int row, {
-      @required int atSection,
+      required int atSection,
       Duration duration = const Duration(milliseconds: 300),
       Curve curve = Curves.easeInOut,
   }) async {
