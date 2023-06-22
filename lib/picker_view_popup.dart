@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'picker_view.dart';
 
 typedef PickerViewBuilder = Widget Function(BuildContext context, PickerViewPopup pickerViewPopup);
@@ -146,7 +146,7 @@ class PickerViewPopup extends StatelessWidget {
                   ),
                   Expanded(
                     child: _buildInkWellButton(
-                      child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).accentColor)),
+                      child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).colorScheme.secondary)),
                       onTap: () {
                         if(onConfirm != null) {
                           onConfirm!(controller);
@@ -189,7 +189,7 @@ class PickerViewPopup extends StatelessWidget {
                   ),
                 ),
                 _buildInkWellButton(
-                  child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).accentColor)),
+                  child: confirm ?? Text('确定',style: TextStyle(color: Theme.of(context).colorScheme.secondary)),
                   onTap: () {
                     if(onConfirm != null) {
                       onConfirm!(controller);
