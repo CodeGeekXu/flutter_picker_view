@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_picker_view/flutter_picker_view.dart';
 
 class CustomPickerView extends StatefulWidget {
@@ -12,7 +12,7 @@ class CustomPickerView extends StatefulWidget {
 
 class CustomPickerViewState extends State<CustomPickerView> {
   
-  PickerController _controller;
+  late PickerController _controller;
   
   @override
   void initState() {
@@ -100,7 +100,7 @@ class CustomPickerViewState extends State<CustomPickerView> {
     );
   }
   
-  Widget _PickerControl({TextEditingController controller, ValueChanged<int> onDone}) {
+  Widget _PickerControl({required TextEditingController controller, required ValueChanged<int> onDone}) {
     return  Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -117,11 +117,9 @@ class CustomPickerViewState extends State<CustomPickerView> {
             ),
             InkWell(
               onTap: (){
-                if (onDone != null) {
-                  String text = controller.text;
-                  onDone(int.parse(text));
-                  controller.clear();
-                }
+                String text = controller.text;
+                onDone(int.parse(text));
+                controller.clear();
               },
               child: Container(
                 alignment: Alignment.center,

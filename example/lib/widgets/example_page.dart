@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_picker_view/flutter_picker_view.dart';
+
 import 'custom_picker_view.dart';
 
 class ExamplePage extends StatefulWidget {
@@ -45,11 +46,10 @@ class ExamplePageState extends State<ExamplePage> {
     );
   }
   
-  Widget _Button({String title, VoidCallback onPressed}) {
+  Widget _Button({required String title,required VoidCallback onPressed}) {
     return Container(
       margin: EdgeInsets.only(bottom: 50),
-      child: FlatButton(
-        color: Colors.blue,
+      child: ElevatedButton(
         onPressed: onPressed,
         child: Text(title, style: TextStyle(color: Colors.white),)
       ),
@@ -67,18 +67,19 @@ class ExamplePageState extends State<ExamplePage> {
       title: Text('alert dialog',style: TextStyle(fontSize: 14),),
       cancel: Text('cancel', style: TextStyle(color: Colors.grey),),
       onCancel: () {
-        Scaffold.of(context).showSnackBar(
+        
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('AlertDialogPicker.cancel'))
         );
       },
       confirm: Text('confirm', style: TextStyle(color: Colors.blue),),
       onConfirm: (controller) {
         List<int> selectedItems = [];
-        selectedItems.add(controller.selectedRowAt(section: 0));
-        selectedItems.add(controller.selectedRowAt(section: 1));
-        selectedItems.add(controller.selectedRowAt(section: 2));
+        selectedItems.add(controller.selectedRowAt(section: 0)!);
+        selectedItems.add(controller.selectedRowAt(section: 1)!);
+        selectedItems.add(controller.selectedRowAt(section: 2)!);
     
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('AlertDialogPicker.selected:$selectedItems'))
         );
       },
@@ -108,18 +109,18 @@ class ExamplePageState extends State<ExamplePage> {
       title: Text('bottom sheet',style: TextStyle(fontSize: 14),),
       cancel: Text('cancel', style: TextStyle(color: Colors.grey),),
       onCancel: () {
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('BottomSheetPicker.cancel'))
         );
       },
       confirm: Text('confirm', style: TextStyle(color: Colors.blue),),
       onConfirm: (controller) {
         List<int> selectedItems = [];
-        selectedItems.add(controller.selectedRowAt(section: 0));
-        selectedItems.add(controller.selectedRowAt(section: 1));
-        selectedItems.add(controller.selectedRowAt(section: 2));
+        selectedItems.add(controller.selectedRowAt(section: 0)!);
+        selectedItems.add(controller.selectedRowAt(section: 1)!);
+        selectedItems.add(controller.selectedRowAt(section: 2)!);
         
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('BottomSheetPicker.selected:$selectedItems'))
         );
       },

@@ -2,3 +2,5 @@ pubspec.lock
 .packages
 .idea
 example.iml
+.dart_tool
+example/ios/Flutter/flutter_export_environment.sh
